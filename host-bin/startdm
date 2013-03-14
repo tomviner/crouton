@@ -1,0 +1,15 @@
+#!/bin/sh -e
+# Copyright (c) 2013 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+APPLICATION="${0##*/}"
+
+USAGE="$APPLICATION [options]
+
+Wraps enter-chroot to start a full desktop session.
+You can then choose a user to log into.
+
+Options are directly passed to enter-chroot; run enter-chroot to list them."
+
+exec sh -e "`dirname "$0"`/enter-chroot" -u root "$@" exec lightdm

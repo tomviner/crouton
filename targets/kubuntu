@@ -1,0 +1,15 @@
+#!/bin/sh -e
+# Copyright (c) 2013 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+REQUIRES='kde'
+DESCRIPTION='Installs the Kubuntu desktop distribution (Approx. 1000MB)'
+HOSTBIN='startdm'
+. "${TARGETSDIR:="$PWD"}/common"
+
+### Append to prepare.sh:
+apt-get -y install kubuntu-desktop `noauto network-manager`
+
+TIPS="$TIPS
+You can start Kubuntu via the startdm host command: sudo startdm
+"
